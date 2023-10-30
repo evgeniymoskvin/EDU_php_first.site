@@ -17,7 +17,7 @@ $publisher = ['Перваое', 'Второе', 'Третье'];
 $book = ['idbook' => 1, 'title' => 'title_value', 'author' => 'dfgdfg', 'price' => '1200руб', 'description' => 'This is a wider card with supporting text below as a natural lead-in to
     additional content.'];
 
-$menu = ['delivery' => 'Доставка', 'contacts' => 'Контакты', 'login' => 'Войти', 'dropdown' => 'Dropdown']
+$menu = ['delivery' => 'Доставка', 'contacts' => 'Контакты', 'login' => 'Войти', 'dropdown' => 'Dropdown'];
 $page = 'index'
 
 ?>
