@@ -11,7 +11,7 @@ $lastName = 'lastName';
 $email = 'email';
 $address = 'address';
 
-$successOrder = '$firstName';
+$successOrder = 'firstName';
 $categories = ['Another action', 'Something else here', 'Action', 'Another action', 'Something else here', 'Action', 'Another action', 'Something else here'];
 $publisher = ['Перваое', 'Второе', 'Третье'];
 $book = ['idbook' => 1, 'title' => 'title', 'author' => 'dfgdfg', 'price' => '1200руб', 'description' => 'This is a wider card with supporting text below as a natural lead-in to
