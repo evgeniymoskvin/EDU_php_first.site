@@ -18,6 +18,7 @@ $book = ['idbook' => 1, 'title' => 'title_value', 'author' => 'dfgdfg', 'price' 
     additional content.'];
 
 $menu = ['delivery' => 'Доставка', 'contacts' => 'Контакты', 'login' => 'Войти', 'dropdown' => 'Dropdown']
+$page = 'index'
 
 ?>
 
