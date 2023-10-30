@@ -6,15 +6,15 @@ define('DBLOGIN', 'DBLOGIN_VALUE');
 define('DBPASS', 'DBPASS_VALUE');
 define('DBNAME', 'DBNAME_VALUE');
 
-$firstName = 'firstName';
-$lastName = 'lastName';
-$email = 'email';
-$address = 'address';
+$firstName = 'firstName_value';
+$lastName = 'lastName_value';
+$email = 'email_value';
+$address = 'address_value';
 
 $successOrder = 'firstName';
 $categories = ['Another action', 'Something else here', 'Action', 'Another action', 'Something else here', 'Action', 'Another action', 'Something else here'];
 $publisher = ['Перваое', 'Второе', 'Третье'];
-$book = ['idbook' => 1, 'title' => 'title', 'author' => 'dfgdfg', 'price' => '1200руб', 'description' => 'This is a wider card with supporting text below as a natural lead-in to
+$book = ['idbook' => 1, 'title' => 'title_value', 'author' => 'dfgdfg', 'price' => '1200руб', 'description' => 'This is a wider card with supporting text below as a natural lead-in to
     additional content.'];
 
 $menu = ['delivery' => 'Доставка', 'contacts' => 'Контакты', 'login' => 'Войти', 'dropdown' => 'Dropdown']
