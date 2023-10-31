@@ -1,3 +1,8 @@
+<?php
+include 'config.php';
+const FILE = 'delivery';
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -52,36 +57,18 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="delivery.html">Доставка</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contacts.html">Контакты</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login.html">Войти</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
-
-  </div>
+        <?php
+        include 'inc/hmenu.inc.php';
+        ?>
   </div>
 </nav>
 
 <div class="container">
-<h1>Контакты</h1>
+<h1>
+  <?php
+  include 'inc/title.inc.php';
+  ?>
+</h1>
 
 <div class="row">
   <div class="col-md-6">
@@ -108,9 +95,9 @@
   </div><!-- /.container -->
 
   <footer class="footer">
-    <div class="container">
-      <span class="text-muted">2020 &copy; Интернет-магазин Книжка</span>
-    </div>
+    <?php
+    include 'inc/footer.inc.php';
+    ?>
   </footer>
 
 

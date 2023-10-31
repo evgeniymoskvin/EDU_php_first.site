@@ -1,25 +1,6 @@
 <?php
-define('AUTHOR', 'Alex');
-define('YEAR', date('Y'));
-define('DBHOST', 'DBHOST_VALUE');
-define('DBLOGIN', 'DBLOGIN_VALUE');
-define('DBPASS', 'DBPASS_VALUE');
-define('DBNAME', 'DBNAME_VALUE');
-
-$firstName = 'firstName_value';
-$lastName = 'lastName_value';
-$email = 'email_value';
-$address = 'address_value';
-
-$successOrder = 'firstName';
-$categories = ['Another action', 'Something else here', 'Action', 'Another action', 'Something else here', 'Action', 'Another action', 'Something else here'];
-$publisher = ['Перваое', 'Второе', 'Третье'];
-$book = ['idbook' => 1, 'title' => 'title_value', 'author' => 'dfgdfg', 'price' => '1200руб', 'description' => 'This is a wider card with supporting text below as a natural lead-in to
-    additional content.'];
-
-$menu = ['delivery' => 'Доставка', 'contacts' => 'Контакты', 'login' => 'Войти', 'dropdown' => 'Dropdown'];
-$page = 'index';
-
+include 'config.php';
+const FILE = 'index';
 ?>
 
 <!doctype html>
@@ -69,36 +50,10 @@ $page = 'index';
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <?php
+        include 'inc/hmenu.inc.php';
+        ?>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="delivery.html">Доставка</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contacts.html">Контакты</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">Войти</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="basket.html">Корзина</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-            </ul>
-
-        </div>
     </div>
 </nav>
 
@@ -110,15 +65,11 @@ $page = 'index';
             <h4>Категория</h4>
 
             <div class="row">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <?php
+                for ($i = 0; $i < count($categories); $i++) {
+                    echo '<a class="dropdown-item" href="#">' . $categories[$i] . '</a>';
+                }
+                ?>
             </div>
             <hr>
 
@@ -145,21 +96,14 @@ $page = 'index';
 
             <div class="row">
                 <ul class="list-group col-md-12 col-sm-12">
-                    <li class="list-group-item">
+                    <?php
+                    for ($i = 0; $i < count($publisher); $i++) {
+                        echo ' <li class="list-group-item">
                         <input type="checkbox" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Первое</label>
-                    </li>
-                    <li class="list-group-item">
-                        <input type="checkbox" id="exampleCheck2">
-                        <label class="form-check-label" for="exampleCheck2">Второе</label>
-                    </li>
-                    <li class="list-group-item">
-                        <input type="checkbox" id="exampleCheck3">
-                        <label class="form-check-label" for="exampleCheck3">Третье</label>
-                    </li>
-                    <li class="list-group-item">
-                        <button type="button" class="btn btn-success">Найти</button>
-                    </li>
+                        <label class="form-check-label" for="exampleCheck1">' . $publisher[$i] . '</label>
+                    </li>';
+                    }
+                    ?>
                 </ul>
 
             </div>
@@ -170,98 +114,33 @@ $page = 'index';
 
         <div class="col-md-9 col-sm-9 ">
             <h1>Каталог</h1>
+            <?php
+            $k = 0;
+            $i = 0;
+            while ($k < count($books)) {
+                echo '<div class="card-deck">';
+                $k += 3;
+                while ($i < $k) {
+                    echo '<div class="card">';
+                    echo '<div class="card-body">';
+                    echo '<img src="http://placehold.it/150x220" alt="...">';
+                    echo '<h3 class="card-title">' . $books[$i]["price"] . '</h3>';
+                    echo '<p class="card-text"><small class="text-muted">Автор: ' . $books[$i]["author"] . '</small></p>';
+                    echo '<p class="card-text">' . $books[$i]["description"] . '</small></p>';
+                    echo '</div>';
+                    echo ' <div class="card-footer"> <button type="button" class="btn btn-primary">В корзину</button> </div>';
+                    echo '</div>';
+                    $i++;
+                }
+                echo '</div>';
+            }
 
-            <div class="card-deck">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="http://placehold.it/150x220" alt="...">
-                        <h3 class="card-title">1200руб</h3>
-                        <p class="card-text"><small class="text-muted">Автор: dfgdfg</small></p>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. Издательство: <a href="#">Полезное</a></p>
-                    </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-primary">В корзину</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <img src="http://placehold.it/150x220" alt="...">
-                        <h3 class="card-title">800руб</h3>
-                        <p class="card-text"><small class="text-muted">Автор: sdgfgfg</small></p>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
-                            content.</p>
-                    </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-primary">В корзину</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <img src="http://placehold.it/150x220" alt="...">
-                        <h3 class="card-title">2100руб</h3>
-                        <p class="card-text"><small class="text-muted">Автор: dfgd</small></p>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content.</p>
-                    </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-primary">В корзину</button>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="card-deck">
-
-                <div class="card">
-                    <div class="card-body">
-                        <img src="http://placehold.it/150x220" alt="...">
-                        <h3 class="card-title">1200руб</h3>
-                        <p class="card-text"><small class="text-muted">Автор: dfgdfg</small></p>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. Издательство: <a href="#">Полезное</a></p>
-                    </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-primary">В корзину</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <img src="http://placehold.it/150x220" alt="...">
-                        <h3 class="card-title">800руб</h3>
-                        <p class="card-text"><small class="text-muted">Автор: sdgfgfg</small></p>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
-                            content.</p>
-                    </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-primary">В корзину</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <img src="http://placehold.it/150x220" alt="...">
-                        <h3 class="card-title">2100руб</h3>
-                        <p class="card-text"><small class="text-muted">Автор: dfgd</small></p>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content.</p>
-                    </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-primary">В корзину</button>
-                    </div>
-                </div>
-
-            </div>
-
-
+            ?>
         </div>
-
-
     </div>
+
+
+</div>
 
 
 </div>
@@ -272,14 +151,10 @@ $page = 'index';
 </div><!-- /.container -->
 
 <footer class="footer">
-    <div class="container">
-        <span class="text-muted">2020 &copy; Интернет-магазин Книжка</span>
-        <br>
-        <?php
-        echo 'DBHOST: ', DBHOST, '<br>';
-        echo 'DBLOGIN: ', DBLOGIN, '<br>';
-        ?>
-    </div>
+    <?php
+    include 'inc/footer.inc.php';
+    ?>
+
 
 </footer>
 
