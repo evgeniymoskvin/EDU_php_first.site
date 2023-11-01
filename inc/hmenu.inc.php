@@ -1,13 +1,8 @@
 
-
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
         <?php
-        foreach ($menu as $l => $n){
-            echo '<li class="nav-item">
-            <a class="nav-link" href="../'.$l.'.php">'.$n.'</a>
-        </li>';
-        }
+        renderMenu($menu);
         ?>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

@@ -1,6 +1,7 @@
 <?php
 include 'config.php';
 const FILE = 'index';
+include 'inc/lib.inc.php';
 ?>
 
 <!doctype html>
@@ -66,9 +67,7 @@ const FILE = 'index';
 
             <div class="row">
                 <?php
-                for ($i = 0; $i < count($categories); $i++) {
-                    echo '<a class="dropdown-item" href="#">' . $categories[$i] . '</a>';
-                }
+                renderCategories($categories);
                 ?>
             </div>
             <hr>
@@ -97,12 +96,7 @@ const FILE = 'index';
             <div class="row">
                 <ul class="list-group col-md-12 col-sm-12">
                     <?php
-                    for ($i = 0; $i < count($publisher); $i++) {
-                        echo ' <li class="list-group-item">
-                        <input type="checkbox" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">' . $publisher[$i] . '</label>
-                    </li>';
-                    }
+                    renderPublisher($publisher);
                     ?>
                 </ul>
 
